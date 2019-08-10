@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="PatATapCSS.css">
+	<script type="text/javascript" src="howler.core.min.js"></script>
+
+	<script type="text/javascript" src="paper-full.min.js"></script>
+	<script type="text/paperscript" canvas="myCanvas">
+		
+		//window.setTimeout(function() {		
+			//alert("Wanna have fun...Hmm? ");
+			//alert("Put your Headphone on.... Press any key from A-Z & enjoy....");
+		
+			var circles = [];
+
+			var data={
+				a: {
+					sound: new Howl({
+						src: ['songs/A/clay.mp3']				
+					}),
+						color: '#e6194b'
+				},
+				b: {
+					sound: new Howl({
+						src: ['songs/A/bubbles.mp3']				
+					}),
+						color: '#3cb44b'
+				},
+				c: {
+					sound: new Howl({
+						src: ['songs/A/confetti.mp3']	//			
+					}),
+						color: '#ffe119'
+				},
+				d: {
+					sound: new Howl({
+						src: ['songs/A/corona.mp3']				
+					}),
+						color: '#4363d8'
+				},
+				e: {
+					sound: new Howl({
+						src: ['songs/A/dotted-spiral.mp3']				
+					}),
+						color: '#f58231'
+				},
+				f: {
+					sound: new Howl({
+						src: ['songs/A/flash-1.mp3']				
+					}),
+						color: '#911eb4'
+				},
+				g: {
+					sound: new Howl({
+						src: ['songs/A/flash-2.mp3']				
+					}),
+						color: '#46f0f0'
+				},
+				h: {
+					sound: new Howl({
+						src: ['songs/A/flash-3.mp3']				
+					}),
+						color: '#bcf60c'
+				},
+				i: {
+					sound: new Howl({
+						src: ['songs/A/glimmer.mp3']				
+					}),
+						color: '#fabebe'
+				},
+				j: {
+					sound: new Howl({
+						src: ['songs/A/moon.mp3']				
+					}),
+						color: '#008080'
+				},
+				k: {
+					sound: new Howl({
+						src: ['songs/A/pinwheel.mp3']				
+					}),
+						color: '#9a6324'
+				},
+				l: {
+					sound: new Howl({
+						src: ['songs/A/piston-1.mp3']				
+					}),
+						color: '#fffac8'
+				},
+				m: {
+					sound: new Howl({
+						src: ['songs/A/piston-2.mp3']				
+					}),
+						color: '#800000'
+				},
+				n: {
+					sound: new Howl({
+						src: ['songs/A/piston-3.mp3']				
+					}),
+						color: '#808000'
+				},
+				o: {
+					sound: new Howl({
+						src: ['songs/A/prism-1.mp3']				
+					}),
+						color: '#aaffc3'
+				},
+				p: {
+					sound: new Howl({
+						src: ['songs/A/prism-2.mp3']				
+					}),
+						color: '#ffd8b1'
+				},
+				q: {
+					sound: new Howl({
+						src: ['songs/A/prism-3.mp3']				
+					}),
+						color: '#000075'
+				},
+				r: {
+					sound: new Howl({
+						src: ['songs/A/splits.mp3']				
+					}),
+						color: '#808080'
+				},
+				s: {
+					sound: new Howl({
+						src: ['songs/A/squiggle.mp3']				
+					}),
+						color: '#ffffff'
+				},
+				t: {
+					sound: new Howl({
+						src: ['songs/A/strike.mp3']				
+					}),
+						color: '#000000'
+				},
+				u: {
+					sound: new Howl({
+						src: ['songs/A/suspension.mp3']				
+					}),
+						color: '#8ce980'
+				},
+				v: {
+					sound: new Howl({
+						src: ['songs/A/timer.mp3']				
+					}),
+						color: '#bd54ae'
+				},
+				w: {
+					sound: new Howl({
+						src: ['songs/A/ufo.mp3']				
+					}),
+						color: '#486e6a'
+				},
+				x: {
+					sound: new Howl({
+						src: ['songs/A/veil.mp3']				
+					}),
+						color: '#875cae'
+				},
+				y: {
+					sound: new Howl({
+						src: ['songs/A/wipe.mp3']				
+					}),
+						color: '#1deab5'
+				},
+				z: {
+					sound: new Howl({
+						src: ['songs/A/zig-zag.mp3']				
+					}),
+						color: '#9865ba'
+				}
+
+		    }		
+
+			function onKeyDown(event) {					
+				var maxPoint= new Point(view.size.width, view.size.height);
+				var randomPoint=Point.random();
+				var point=randomPoint*maxPoint;	
+				var newCircle=new Path.Circle(point, 500);			
+
+				newCircle.fillColor=data[event.key].color;
+				data[event.key].sound.play();
+				circles.push(newCircle);
+			}		
+
+			function onFrame(event) {
+				for(var i=0;i<circles.length;i++){
+					circles[i].fillColor.hue+=1;
+					circles[i].scale(.9);
+				}	
+	        }
+	//}, 500);	
+    </script>
+</head>
+<body>
+    <canvas id="myCanvas" resize></canvas>
+    <p class="message">adcasdfe</p>
+</body>
+</html>
